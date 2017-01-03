@@ -1,0 +1,16 @@
+{% extends 'mysite/base.html' %}
+{% block content %}
+{{ post }}
+    <script type="text/javascript">
+
+
+    </script>
+    {% if list_header %}
+        <div class="box">{{ list_header }}</div>
+    {% endif %}
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -10,4 +10,5 @@ urlpatterns=[
 	url(r'^post/drafts/$',views.post_draft_list,name='post_draft_list'),
 	url(r'^post/(?P<pk>[0-9]+)/publish/$', views.post_publish, name='post_publish'),
 	url(r'^post/(?P<pk>[0-9]+)/remove/$', views.post_remove, name='post_remove'),
+	url(r'^post/full_search/$', views.full_search, name='full_search'),
 ]

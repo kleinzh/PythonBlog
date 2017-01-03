@@ -22,5 +22,6 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$',login, name='login'),
+    url(r'^search/', include('haystack.urls')),
     url(r'',include('blog.urls'))
 ]

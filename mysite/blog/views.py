@@ -5,6 +5,16 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
+from haystack.forms import SearchForm
+# import qiniu
+def full_search(request):
+	"""全局搜索"""
+	keywords = request.GET['q']
+	sform = SearchForm(request.GET)
+	posts = sform.search()
+	print(posts)
+	return render(request, 'blog/post_search_list.html',{'test': sform, 'posts': posts, 'list_header': '关键字 \'{}\' 搜索结果'.format(keywords)})
+
 # Create your views here.
 def post_list(request):
 	postsAll=Post.objects.filter(published_date__isnull=False).order_by('-published_date')
